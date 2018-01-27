@@ -19,5 +19,17 @@
   )
 end
 
+25.times do
+  Beer.create!(
+    name:   Faker::Beer.name,
+    price:  rand(4..8),
+  )
+
+  Food.create!(
+    name:   Faker::Food.dish,
+    price:  rand(8..22),
+  )
+end
+
 
 # rails g scaffold Company name:string bs:string logo:string org_type:string
