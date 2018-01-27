@@ -14,14 +14,20 @@ module FiinlabTool
   end
 
   def self.login
-    response = RestClient.post '217.32.246.192:9091/ESBConnector/service',
-      {
-        "username": "TCPIP",
-        "password": "12345678",
-        "action": "LOGIN"
-      }.to_json,
-      :x_access_token => 'eyJhbGciOiJIUzI1NiJ9.NWE2Y2FiOGRlMjFkYzIwOGViMWMwNzdl.az3GyxAKhObJ0hTMjJbJO0SdMUF0suwz3VBL0VHYXKw',
-      :content_type => 'application/json'
-    JSON.parse(response.body).with_indifferent_access
+    session = FiinlabTool.create_session
+    if session['token']
+      response = RestClient.post '217.32.246.192:9091/ESBConnector/service',
+        {
+          "username": "TCPIP",
+          "password": "12345678",
+          "action": "LOGIN"
+        }.to_json,
+        :x_access_token => session['token'],
+        :content_type => 'application/json'
+      login_response = JSON.parse(response.body).with_indifferent_access
+      return login_response['data'] ? login_response['data'] : login_response['message']
+    else
+      return session['messge']
+    end
   end
 end
