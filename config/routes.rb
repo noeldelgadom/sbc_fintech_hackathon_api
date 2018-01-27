@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   end
   post    'transfers',  defaults: {format: :json}, to: 'transfers#create'
   mount_devise_token_auth_for 'User', at: 'auth'
+  post '/create_qr_code', to: 'qr#create_qr_code'
 end

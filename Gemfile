@@ -32,6 +32,7 @@ gem 'faker', '~> 1.6', '>= 1.6.6'
 gem 'rest-client', '~> 2.0.2'
 gem 'devise_token_auth'
 gem 'omniauth', '~> 1.8', '>= 1.8.1'
+gem 'rqrcode'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
