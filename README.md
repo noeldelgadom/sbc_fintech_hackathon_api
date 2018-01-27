@@ -5,12 +5,17 @@ application up and running.
 
 ## Endpoints
 
-* GET      /companies(.:format)                   companies#index
-* POST     /companies(.:format)                   companies#create
-* GET      /companies/:id(.:format)               companies#show
-* PATCH    /companies/:id(.:format)               companies#update
-* PUT      /companies/:id(.:format)               companies#update
-* DELETE   /companies/:id(.:format)               companies#destroy
+* GET      /companies(.:format)                   companies#index {:format=>:json}
+* POST     /companies(.:format)                   companies#create {:format=>:json}
+* GET      /companies/:id(.:format)               companies#show {:format=>:json}
+* PATCH    /companies/:id(.:format)               companies#update {:format=>:json}
+* PUT      /companies/:id(.:format)               companies#update {:format=>:json}
+* DELETE   /companies/:id(.:format)               companies#destroy {:format=>:json}
+* GET      /users(.:format)                       users#index {:format=>:json}
+* GET      /users/:id(.:format)                   users#show {:format=>:json}
+* PATCH    /users/:id(.:format)                   users#update {:format=>:json}
+* PUT      /users/:id(.:format)                   users#update {:format=>:json}
+* DELETE   /users/:id(.:format)                   users#destroy {:format=>:json}
 * GET      /auth/sign_in(.:format)                devise_token_auth/sessions#new
 * POST     /auth/sign_in(.:format)                devise_token_auth/sessions#create
 * DELETE   /auth/sign_out(.:format)               devise_token_auth/sessions#destroy
@@ -31,4 +36,3 @@ application up and running.
 * GET      /auth/:provider/callback(.:format)     devise_token_auth/omniauth_callbacks#omniauth_success
 * GET|POST /omniauth/:provider/callback(.:format) devise_token_auth/omniauth_callbacks#redirect_callbacks
 * GET|POST /omniauth/failure(.:format)            devise_token_auth/omniauth_callbacks#omniauth_failure
-* GET      /auth/:provider(.:format)              redirect(301)
