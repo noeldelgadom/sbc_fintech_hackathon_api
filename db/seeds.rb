@@ -16,3 +16,6 @@
     org_type:   Faker::Company.type,
   )
 end
+
+
+# rails g scaffold Company name:string bs:string logo:string org_type:string
