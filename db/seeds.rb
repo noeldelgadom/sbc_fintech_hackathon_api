@@ -32,4 +32,6 @@ end
 end
 
 
+
+
 # rails g scaffold Company name:string bs:string logo:string org_type:string
