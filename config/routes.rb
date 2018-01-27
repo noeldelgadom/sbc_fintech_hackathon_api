@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :companies, defaults: {format: :json}
+  resources :companies, defaults: {format: :json} do
+    member { get :balance, :statement }
+  end
   resources :users,     defaults: {format: :json}, except: [:create] do
     member { get :balance, :statement }
   end

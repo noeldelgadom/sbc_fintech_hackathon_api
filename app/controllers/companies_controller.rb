@@ -1,11 +1,19 @@
 class CompaniesController < ApplicationController
-  before_action :set_company, only: [:show, :update, :destroy]
+  before_action :set_company, only: [:show, :balance, :statement, :update, :destroy]
 
   def index
     @companies = Company.all
   end
 
   def show
+  end
+
+  def balance
+    render json: FiinlabTool.account_balance(@company.account_number), status: :ok
+  end
+
+  def statement
+    render json: FiinlabTool.account_statement(@company.account_number), status: :ok
   end
 
   def create
