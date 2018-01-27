@@ -1,11 +1,21 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :update, :destroy]
+  before_action :set_user, only: [:show, :balance, :statement, :update, :destroy]
 
   def index
     @users = User.all
   end
 
   def show
+  end
+
+  def balance
+    puts '---'
+    puts 'balance'
+  end
+
+  def statement
+    puts '---'
+    puts 'statement'
   end
 
   def create
