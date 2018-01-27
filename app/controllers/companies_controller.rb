@@ -13,7 +13,7 @@ class CompaniesController < ApplicationController
   end
 
   def statement
-    render json: FiinlabTool.account_statement(@company.account_number), status: :ok
+    @statement = FiinlabTool.account_statement(@company.account_number)
   end
 
   def create
