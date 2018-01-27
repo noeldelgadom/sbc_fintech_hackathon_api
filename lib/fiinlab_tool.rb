@@ -31,14 +31,14 @@ module FiinlabTool
     end
   end
 
-  def self.account_balance
+  def self.account_balance(account_number)
     session = FiinlabTool.login
     if session['token']
       response = RestClient.post '217.32.246.192:9091/ESBConnector/esb/core/transaction',
         {
           "trans_type": "BENQ0002",
           "account": "01",
-          "custaccount": "113183314"
+          "custaccount": account_number
         }.to_json,
         :x_access_token => session['token'],
         :content_type => 'application/json'
@@ -48,14 +48,14 @@ module FiinlabTool
     end
   end
 
-  def self.account_statement
+  def self.account_statement(account_number)
     session = FiinlabTool.login
     if session['token']
       response = RestClient.post '217.32.246.192:9091/ESBConnector/esb/core/transaction',
         {
           "trans_type": "STMNT0002",
           "account": "01",
-          "custaccount": "113183314"
+          "custaccount": account_number
         }.to_json,
         :x_access_token => session['token'],
         :content_type => 'application/json'
