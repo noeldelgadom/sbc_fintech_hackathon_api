@@ -16,6 +16,10 @@
 #
 default: &default
   adapter: postgresql
+  host: dinub.cnyiue1nlwuv.us-east-1.rds.amazonaws.com
+  database: dinub
+  username: dinub
+  password: dinub123
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
