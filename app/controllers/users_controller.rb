@@ -9,11 +9,11 @@ class UsersController < ApplicationController
   end
 
   def balance
-    render json: FiinlabTool.account_balance(@user.account_number), status: :ok
+    @balance = FiinlabTool.account_balance(@user.account_number)
   end
 
   def statement
-    render json: FiinlabTool.account_statement(@user.account_number), status: :ok
+    @statement = FiinlabTool.account_statement(@user.account_number)
   end
 
   def create

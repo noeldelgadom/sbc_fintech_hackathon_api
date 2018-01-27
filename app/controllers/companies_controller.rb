@@ -9,7 +9,7 @@ class CompaniesController < ApplicationController
   end
 
   def balance
-    render json: FiinlabTool.account_balance(@company.account_number), status: :ok
+    @balance = FiinlabTool.account_balance(@company.account_number)
   end
 
   def statement
