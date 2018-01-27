@@ -1,6 +1,6 @@
 # Dinub API
 
-This README would normally document whatever steps are necessary to get the
+This README documents the steps necessary to get the
 application up and running.
 
 ## Endpoints
