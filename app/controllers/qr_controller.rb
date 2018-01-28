@@ -4,7 +4,9 @@ class QrController < ApplicationController
   	model = User if create_qr_code_params[:type] == "User"
   	model = Company if create_qr_code_params[:type] == "Company"
   	record = model.find(create_qr_code_params[:id])
-  	unique_string = "#{create_qr_code_params[:type]};#{record.id};#{record.account_number};#{create_qr_code_params[:concept]};#{create_qr_code_params[:ammount]};#{create_qr_code_params[:currency]}"
+    new_type = "Company" if create_qr_code_params[:type] == "User"
+    new_type = "User" if create_qr_code_params[:type] == "Company"
+  	unique_string = "#{new_type};#{record.id};#{record.account_number};#{create_qr_code_params[:concept]};#{create_qr_code_params[:ammount]};#{create_qr_code_params[:currency]}"
   	qrcode = RQRCode::QRCode.new(unique_string)
   	dir = Rails.root.join('public', 'qrs')
   	png = qrcode.as_png(
