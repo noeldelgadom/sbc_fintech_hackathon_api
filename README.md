@@ -17,10 +17,6 @@ application up and running.
 
 | Verb        | URI Pattern | Controller and Action  |
 | ------------- |-------------|----------|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
-
 | POST |     /cart_items(.:format) |                           cart_items#create {:format=>:json} |
 | PATCH |    /cart_items/:id(.:format) |                       cart_items#update {:format=>:json} |
 | PUT |      /cart_items/:id(.:format) |                       cart_items#update {:format=>:json} |
