@@ -10,12 +10,20 @@ application up and running.
 Sample GET Requests
 
 * https://dinub-api.herokuapp.com/items
+* https://dinub-api.herokuapp.com/users/1/balance
 * https://dinub-api.herokuapp.com/users/1/statement
 * https://dinub-api.herokuapp.com/companies/1/balance
+* https://dinub-api.herokuapp.com/companies/1/statement
 
 ## Example Requests on Postman
 
-### https://www.getpostman.com/collections/0af88216b51670f1e1e8
+You can make petitions to our API using Postman. Here a helper collection. You can download it following these setps:
+
+1. File
+2. Import
+3. Import From Link
+4. Enter https://www.getpostman.com/collections/0af88216b51670f1e1e8
+5. Import
 
 ## Endpoints
 
