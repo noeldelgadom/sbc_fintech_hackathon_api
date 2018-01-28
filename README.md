@@ -13,11 +13,13 @@ application up and running.
 
 ## Endpoints
 
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+
+
+| Verb        | URI Pattern | Controller | Action  |
+| ------------- |-------------|-----|-----|
+| col 3 is      | right-aligned | $1600 | $1600 |
+| col 2 is      | centered      |   $12 | $1600 |
+| zebra stripes | are neat      |    $1 | $1600 |
 
 * cart_items POST     /cart_items(.:format)                           cart_items#create {:format=>:json}
 * PATCH    /cart_items/:id(.:format)                       cart_items#update {:format=>:json}
