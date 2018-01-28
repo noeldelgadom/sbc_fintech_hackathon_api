@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :balance, :statement, :update, :destroy]
+  before_action :set_user, only: [:show, :balance, :statement, :cart, :update, :destroy]
 
   def index
     @users = User.all
@@ -14,6 +14,10 @@ class UsersController < ApplicationController
 
   def statement
     @statement = FiinlabTool.account_statement(@user.account_number)
+  end
+
+  def cart
+
   end
 
   def create

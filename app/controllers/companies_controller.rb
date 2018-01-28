@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  before_action :set_company, only: [:show, :balance, :statement, :update, :destroy]
+  before_action :set_company, only: [:show, :balance, :statement, :client_cart, :update, :destroy]
 
   def index
     @companies = Company.all
@@ -14,6 +14,10 @@ class CompaniesController < ApplicationController
 
   def statement
     @statement = FiinlabTool.account_statement(@company.account_number)
+  end
+
+  def client_cart
+
   end
 
   def create
