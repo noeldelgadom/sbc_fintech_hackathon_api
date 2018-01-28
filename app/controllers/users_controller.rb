@@ -17,7 +17,8 @@ class UsersController < ApplicationController
   end
 
   def cart
-
+    @company = Company.find(params[:company_id])
+    @cart_items = CartItem.where(user: @user, company: @company)
   end
 
   def create
