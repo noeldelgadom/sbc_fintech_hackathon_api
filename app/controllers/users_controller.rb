@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :balance, :statement, :update, :destroy]
+  before_action :set_user, only: [:show, :balance, :statement, :cart, :open_tabs, :update, :destroy]
 
   def index
     @users = User.all
@@ -9,11 +9,20 @@ class UsersController < ApplicationController
   end
 
   def balance
-    render json: FiinlabTool.account_balance(@user.account_number), status: :ok
+    @balance = FiinlabTool.account_balance(@user.account_number)
   end
 
   def statement
-    render json: FiinlabTool.account_statement(@user.account_number), status: :ok
+    @statement = FiinlabTool.account_statement(@user.account_number)
+  end
+
+  def cart
+    @company = Company.find(params[:company_id])
+    @cart_items = CartItem.where(user: @user, company: @company)
+  end
+
+  def open_tabs
+    @companies = Company.where(id: CartItem.where(user: @user).pluck(:company_id))
   end
 
   def create
