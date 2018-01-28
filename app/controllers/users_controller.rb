@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :balance, :statement, :cart, :open_tabs, :update, :destroy]
+  before_action :set_user,                    only: [ :show, :balance, :statement, :cart, :open_tabs,
+                                                      :credit_company, :update, :destroy]
+  before_action :set_company_and_cart_items,  only: [:cart, :credit_company]
 
   def index
     @users = User.all
@@ -17,8 +19,6 @@ class UsersController < ApplicationController
   end
 
   def cart
-    @company = Company.find(params[:company_id])
-    @cart_items = CartItem.where(user: @user, company: @company)
   end
 
   def open_tabs
@@ -33,6 +33,11 @@ class UsersController < ApplicationController
     else
       render json: @user.errors, status: :unprocessable_entity
     end
+  end
+
+  def credit_company
+    FiinlabTool.transfer(@user.account_number, @company.account_number, @balance, @company.name)
+    @cart_items.destroy_all
   end
 
   def update
@@ -52,6 +57,12 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
 
+    def set_company_and_cart_items
+      @company = Company.find(params[:company_id])
+      @cart_items = CartItem.where(user: @user, company: @company)
+      @balance = 0
+      @cart_items.each {|cart_item| @balance += cart_item.item.price * cart_item.quantity }
+    end
 
     def user_params
       params.require(:user).permit(:id, :uid, :name, :nickname, :image, :email)
