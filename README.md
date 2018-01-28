@@ -1,13 +1,13 @@
 # Dinub API
 
 This README documents the steps necessary to get the
-application up and running.
+API up and running.
 
 ## Heroku Backend
 
 ### https://dinub-api.herokuapp.com/
 
-Sample GET Requests
+Sample GET Requests:
 
 * https://dinub-api.herokuapp.com/items
 * https://dinub-api.herokuapp.com/users/1/balance
@@ -17,7 +17,7 @@ Sample GET Requests
 
 ## Example Requests on Postman
 
-You can make petitions to our API using Postman. Here a helper collection. You can download it following these setps:
+You can make petitions to our API using Postman. Here a helper collection that you can download by following these steps:
 
 1. File
 2. Import
