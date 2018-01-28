@@ -33,11 +33,11 @@ puts pluralize(Company.count.to_s, Company.name)
 end
 puts pluralize(Item.count.to_s, Item.name)
 
-50.times do
+5.times do |i|
   CartItem.create!(
-    user_id:    rand(1..User.count),
-    company_id: rand(1..Company.count),
-    item_id:    rand(1..Item.count),
+    user_id:    i+1,
+    company_id: i+1,
+    item_id:    i+1,
     quantity:   rand(1..5)
   )
 end
