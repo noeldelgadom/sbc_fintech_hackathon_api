@@ -19,6 +19,8 @@ class UsersController < ApplicationController
   def cart
     @company = Company.find(params[:company_id])
     @cart_items = CartItem.where(user: @user, company: @company)
+    @balance = 0
+    @cart_items.each {|cart_item| @balance += cart_item.item.price * cart_item.quantity }
   end
 
   def open_tabs
