@@ -20,14 +20,11 @@
 end
 
 25.times do
-  Beer.create!(
-    name:   Faker::Beer.name,
-    price:  rand(4..8),
-  )
-
-  Food.create!(
-    name:   Faker::Food.dish,
-    price:  rand(8..22),
+  category = ['beer', 'food'].sample
+  Item.create!(
+    name:       category == 'beer' ? Faker::Beer.name : Faker::Food.dish,
+    price:      rand(4..15),
+    category:   category
   )
 end
 

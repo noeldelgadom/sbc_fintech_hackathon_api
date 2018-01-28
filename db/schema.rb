@@ -10,26 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180127231352) do
+ActiveRecord::Schema.define(version: 20180127235351) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "beers", force: :cascade do |t|
+  create_table "cart_items", force: :cascade do |t|
     t.string "name"
     t.integer "price"
+    t.string "categroy"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "cart_items", force: :cascade do |t|
-    t.bigint "company_id"
-    t.bigint "user_id"
-    t.integer "quantity"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["company_id"], name: "index_cart_items_on_company_id"
-    t.index ["user_id"], name: "index_cart_items_on_user_id"
   end
 
   create_table "companies", force: :cascade do |t|
@@ -42,9 +33,10 @@ ActiveRecord::Schema.define(version: 20180127231352) do
     t.integer "account_number"
   end
 
-  create_table "foods", force: :cascade do |t|
+  create_table "items", force: :cascade do |t|
     t.string "name"
     t.integer "price"
+    t.string "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -79,6 +71,4 @@ ActiveRecord::Schema.define(version: 20180127231352) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
-  add_foreign_key "cart_items", "companies"
-  add_foreign_key "cart_items", "users"
 end

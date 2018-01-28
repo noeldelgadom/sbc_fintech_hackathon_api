@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   resources :cart_items,  defaults: {format: :json}, only: [:create, :update, :destroy]
-  resources :foods,       defaults: {format: :json}, only: [:index, :show]
-  resources :beers,       defaults: {format: :json}, only: [:index, :show]
+  resources :items,       defaults: {format: :json}, only: [:index, :show]
   resources :companies,   defaults: {format: :json} do
     member { get :balance, :statement }
   end
