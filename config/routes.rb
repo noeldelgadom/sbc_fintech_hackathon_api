@@ -3,13 +3,13 @@ Rails.application.routes.draw do
   resources :items,       defaults: {format: :json}, only: [:index, :show]
   resources :companies,   defaults: {format: :json} do
     member do
-      get :balance, :statement
+      get :balance, :statement, :open_tabs
       get 'client_cart/:user_id', to: 'companies#client_cart'
     end
   end
   resources :users,     defaults: {format: :json}, except: [:create] do
     member do
-      get :balance, :statement
+      get :balance, :statement, :open_tabs
       get 'cart_at/:company_id', to: 'users#cart'
     end
   end

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :balance, :statement, :cart, :update, :destroy]
+  before_action :set_user, only: [:show, :balance, :statement, :cart, :open_tabs, :update, :destroy]
 
   def index
     @users = User.all
@@ -19,6 +19,10 @@ class UsersController < ApplicationController
   def cart
     @company = Company.find(params[:company_id])
     @cart_items = CartItem.where(user: @user, company: @company)
+  end
+
+  def open_tabs
+    @companies = Company.where(id: CartItem.where(user: @user).pluck(:company_id))
   end
 
   def create
