@@ -81,3 +81,11 @@ You can make petitions to our API using Postman. Here a helper collection that y
 | GET ||POST /omniauth/failure(.:format) |                     devise_token_auth/omniauth_callbacks#omniauth_failure |
 | GET |      /auth/:provider(.:format) |                       redirect(301) |
 | POST |     /create_qr_code(.:format) |                       qr#create_qr_code |
+
+## iOS Application
+
+https://github.com/noeldelgadom/sbc_fintech_hackathon_ios
+
+## Support
+
+noeldelgadom@gmail.com
