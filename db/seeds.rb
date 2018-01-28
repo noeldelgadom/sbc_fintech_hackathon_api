@@ -1,3 +1,5 @@
+include ActionView::Helpers::TextHelper
+
 10.times do
   User.create!(
     provider:       "email",
@@ -18,6 +20,8 @@
     account_number: 113183311,
   )
 end
+puts pluralize(User.count.to_s, User.name)
+puts pluralize(Company.count.to_s, Company.name)
 
 25.times do
   category = ['beer', 'food'].sample
@@ -27,6 +31,17 @@ end
     category:   category
   )
 end
+puts pluralize(Item.count.to_s, Item.name)
+
+50.times do
+  CartItem.create!(
+    user_id:    rand(1..User.count),
+    company_id: rand(1..Company.count),
+    item_id:    rand(1..Item.count),
+    quantity:   rand(1..5)
+  )
+end
+puts pluralize(CartItem.count.to_s, CartItem.name)
 
 
 
