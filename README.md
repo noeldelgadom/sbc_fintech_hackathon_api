@@ -5,11 +5,17 @@ application up and running.
 
 ## Heroku Backend
 
-* https://dinub-api.herokuapp.com/
+### https://dinub-api.herokuapp.com/
+
+Sample GET Requests
+
+* https://dinub-api.herokuapp.com/items
+* https://dinub-api.herokuapp.com/users/1/statement
+* https://dinub-api.herokuapp.com/companies/1/balance
 
 ## Example Requests on Postman
 
-* https://www.getpostman.com/collections/0af88216b51670f1e1e8
+### https://www.getpostman.com/collections/0af88216b51670f1e1e8
 
 ## Endpoints
 
